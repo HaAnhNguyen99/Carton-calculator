@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<br lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+          text-align: center;
+          color: red;
+        }
+        </style>
+</head>
+<br>
+        <label for="fname">Chiều cao:</label><br>
+            <input type="text" id="cao-element" value="10"><br>
+        <label for="lname">Chiều rộng:</label><br>
+            <input type="text" id="rong-element" name="lname" value="20.5"><br>
+        <label for="lname">Chiều dài:</label><br>
+            <input type="text" id="dai-element" name="lname" value="30.5"><br>
+        <label for="lname">Giá:</label><br>
+            <input type="text" id="gia-element" name="lname" value="1.4"><br><br>
+            <label for="cars">Chọn bế lỗ:</label>
+        <select id="belo">
+            <option value="co">Có</option>
+            <option value="khong">Không</option>
+        </select><br>
+            
+        <button  onclick="myFunction()">Tính</button>
+    <script>
+        function tinhD(d, r, belo)
+        {
+            if  (d + r >= 100 || belo == "Có")
+            {
+                D = ((d + r) * 2) + 10;
+                return D;
+
+            }
+            else
+            {
+                D = ((d + r) * 2) + 5;
+                return D;
+            }
+        }
+
+        function TinhK(r, c)
+        {
+            K = r + c + 3;
+            return K;
+        }
+
+        function myFunction() {
+            var c = parseFloat(document.getElementById("cao-element").value.replace(",","."))
+            var d = parseFloat(document.getElementById("dai-element").value.replace(",","."))
+            var r = parseFloat(document.getElementById("rong-element").value.replace(",","."))
+            var gia = parseFloat(document.getElementById("gia-element").value.replace(",","."))
+
+            var belo_element = document.getElementById("belo");
+            var belo = belo_element.options[belo_element.selectedIndex].text;  
+
+            var D = tinhD(d,r, belo);
+            var K = TinhK(r,c);
+
+            const Thanhtien = Math.trunc(D * K * gia);
+            
+            // console.log(Thanhtien.toLocaleString());
+            console.log(Thanhtien.toLocaleString());
+        }
+    </script>
+</body>
+</html>
