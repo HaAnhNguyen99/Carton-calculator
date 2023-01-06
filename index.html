@@ -9,27 +9,35 @@
         button {
             text-align: center;
             color: red;
-            width: 360px;   
+            width: 370px;   
             padding: 5px;
             line-height: 1;
             border: 100;
-            border-radius: 1000;
+            border-radius: 1000px;
             height: 34px;
             font-size: 25px;
+            font-weight: bold;
         }
 
         h1{
             text-align: center;
             color: red;
         }
+        
+        h2{
+            text-align: center;
+            color: red;
+        }
 
         body{
             font-family: sans-serif;
-            font-size: 30px;
+            font-size: 20px;
             line-height: 24px;
             margin: 10;
             padding: 10;
             text-align: center;
+
+
             margin-top: 10px;
             margin-bottom: 10px;
             margin-right: 15px;
@@ -40,6 +48,7 @@
             font-family: sans-serif;
             font-size: 30px;
             
+            border-radius: 1000px;
             margin-top: 10px;
             margin-bottom: 10px;
             margin-right: 15px;
@@ -47,21 +56,21 @@
         }
         option{
             font-family: sans-serif;
-            font-size: 30px;
+            font-size: 15px;
         }
 
         select::-ms-expand {
             display: none;
-            border-radius: 1000;
+            border-radius: 1000px;
         }
         
-        select {
+        .styled-select{
             width: 360px;
             padding: 5px;
             font-size: 16px;
             line-height: 1;
             border: 100;
-            border-radius: 1000;
+            border-radius: 1000px;
             height: 34px;
 
             margin-top: 10px;
@@ -69,6 +78,15 @@
             margin-right: 15px;
             margin-left: 8px;
         }
+
+        #belo-div{
+            display: grid;
+            place-items: center;
+            margin-bottom: 10px;
+            margin-right: 15px;
+            margin-left: 8px;
+        }
+
         </style>
 
 </head>
@@ -88,22 +106,22 @@
             </select><br>
         
         <label for="lname">Chiều dài (cm)</label><br>
-        <input type="text" id="dai-element" name="lname" value="30"><br>
+        <input type="text" id="dai-element" name="lname" value=""><br>
 
         <label for="lname">Chiều rộng (cm)</label><br>
-        <input type="text" id="rong-element" name="lname" value="20"><br>
+        <input type="text" id="rong-element" name="lname" value=""><br>
 
         <label for="fname">Chiều cao (cm)</label><br>
-        <input type="text" id="cao-element" value="10"><br>
+        <input type="text" id="cao-element" value=""><br>
         
         <div id="tayxach-div" style="display: none;">
             <label for="fname">Chiều cao quai xách (cm)</label><br>
-            <input type="text" id="tayxach-element" value="10"><br>
+            <input type="text" id="tayxach-element" value=""><br>
         </div>
         
 
         <label for="lname">Giá (m2)</label><br>
-        <input type="text" id="gia-element" name="lname" value="1"><br><br>
+        <input type="text" id="gia-element" name="lname" value=""><br><br>
 
         <div id="belo-div" style="display: none;">
             <label for="cars">Chọn bế lỗ:</label>
@@ -112,7 +130,10 @@
                 <option selected="selected" value="khong">Không</option>
             </select><br>
          </div>
-        <button  onclick="myFunction()">Tính</button>
+        <button  onclick="myFunction()">Tính</button><br><br>
+        <h2 id = "thanhtien"></h2>
+        <h2 id = "giakhuonbe"></h2>
+
     <script>
         var loaithung_value;
         function change(){
@@ -130,7 +151,7 @@
                 document.getElementById("tayxach-div").style.display = "none";
             }
         }
-        z
+    
         function tinhD(d, r, belo)
         {
             if  (d + r >= 100 || belo == "Có")
@@ -226,6 +247,14 @@
             return GiaKhuongBe_return;
         }
 
+        function reset (){
+            var c = document.getElementById("cao-element").value = "";
+                var d = document.getElementById("dai-element").value = "";
+                var r = document.getElementById("rong-element").value = "";
+                var t = document.getElementById("tayxach-element").value = "";
+                var gia = document.getElementById("gia-element").value = "";
+            
+        }
         function myFunction() {
                 var c = parseFloat(document.getElementById("cao-element").value.replace(",","."))
                 var d = parseFloat(document.getElementById("dai-element").value.replace(",","."))
@@ -245,7 +274,8 @@
                             var K = TinhK(r,c);
             
                             const Thanhtien = Math.trunc(D * K * gia);
-                            alert("Giá thành: " + Thanhtien.toLocaleString());
+                            document.getElementById("thanhtien").innerHTML = "Giá thành: " + Thanhtien.toLocaleString() + " VNĐ";
+                            reset();
                             break;
             
                         case 'Hộp nắp gài (dạng bem)':
@@ -258,21 +288,25 @@
                             var GiakhuonBe = Math.trunc(D * K * 140 + 150000);
                             var showThanhtien = ThanhTien.toLocaleString()
                             var showGiakhuonBe = GiakhuonBe.toLocaleString()
-                            alert("Giá thành: " + showThanhtien + "\n Giá khuôn bế: " + showGiakhuonBe);
+                            document.getElementById("thanhtien").innerHTML = "Giá thành: " + showThanhtien + " VNĐ" ;
+                            document.getElementById("giakhuonbe").innerHTML = "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
+                            reset();
                             break;
                         case 'Hộp âm dương':
                             var showThanhtien = TinhGiaThanh_HopAmDuong(c, r, d, gia);
                             var showGiakhuonBe = TinhGiaKhuonBe_HopAmDuong(c, r, d, gia);
             
-                            alert("Giá thành: " + showThanhtien + "\n Giá khuôn bế: " + showGiakhuonBe);
+                            document.getElementById("thanhtien").innerHTML = "Giá thành: " + showThanhtien + " VNĐ" ;
+                            document.getElementById("giakhuonbe").innerHTML = "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
+                            reset();
                             break;
                         case 'Thùng nắp chồng':
                             var D = ((d + r) * 2) + 5;
                             var K = (2 * r) + c + 3;
                             var ThanhTien = Math.trunc(D * K * gia);
                             var showThanhtien = ThanhTien.toLocaleString()
-            
-                            alert("Giá thành: " + showThanhtien);
+                            document.getElementById("thanhtien").innerHTML = "Giá thành: " + showThanhtien + " VNĐ" ;
+                            reset();
                             break;
                         case 'Hộp nắp đậy đít gài':
                             var D = ((d + r) * 2) + 5;
@@ -281,8 +315,10 @@
                             var GiakhuonBe = Math.trunc(D * K * 140 + 150000);
                             var showThanhtien = ThanhTien.toLocaleString()
                             var showGiakhuonBe = GiakhuonBe.toLocaleString()
-            
-                            alert("Giá thành: " + showThanhtien + "\n Giá khuôn bế: " + showGiakhuonBe);
+                            
+                            document.getElementById("thanhtien").innerHTML = "Giá thành: " + showThanhtien + " VNĐ" ;
+                            document.getElementById("giakhuonbe").innerHTML = "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
+                            reset();
                             break;
                         case 'Hộp nắp đậy 2 đầu':
                             var D;
@@ -297,7 +333,10 @@
                             var GiakhuonBe = Math.trunc(D * K * 140 + 150000);
                             var showThanhtien = ThanhTien.toLocaleString()
                             var showGiakhuonBe = GiakhuonBe.toLocaleString()
-                            alert("Giá thành: " + showThanhtien + "\n Giá khuôn bế: " + showGiakhuonBe);
+                            
+                            document.getElementById("thanhtien").innerHTML = "Giá thành: " + showThanhtien + " VNĐ" ;
+                            document.getElementById("giakhuonbe").innerHTML = "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
+                            reset();
                             break;
                         case 'Hộp tay xách (hay thùng gà)':
                             var D;
@@ -314,7 +353,9 @@
                             var showThanhtien = ThanhTien.toLocaleString()
                             var showGiakhuonBe = GiakhuonBe.toLocaleString()
             
-                            alert("Giá thành: " + showThanhtien + "\n Giá khuôn bế: " + showGiakhuonBe);
+                            document.getElementById("thanhtien").innerHTML = "Giá thành: " + showThanhtien + " VNĐ" ;
+                            document.getElementById("giakhuonbe").innerHTML = "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
+                            reset();
                             break;
                         case 'Hộp giày':
                             var D = (2 * c) + d + 13;
@@ -323,16 +364,22 @@
                             var ThanhTien = Math.trunc(D * K * gia);
                             var GiakhuonBe = Math.trunc(D * K * 140 + 150000);
             
-                            var showThanhtien = ThanhTien.toLocaleString()
-                            var showGiakhuonBe = GiakhuonBe.toLocaleString()
-            
-                            alert("Giá thành: " + showThanhtien + "\n Giá khuôn bế: " + showGiakhuonBe);
+                            var showThanhtien = ThanhTien.toLocaleString();
+                            var showGiakhuonBe = GiakhuonBe.toLocaleString();
+                            
+                            document.getElementById("thanhtien").innerHTML = "Giá thành: " + showThanhtien + " VNĐ" ;
+                            document.getElementById("giakhuonbe").innerHTML = "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
+                            reset();
                             break;
                         default:
                             // code block
                             alert("Vui lòng chọn loại thùng!");
                         }
-            
+                        var c = parseFloat(document.getElementById("cao-element").value.replace(",","."))
+                        var d = parseFloat(document.getElementById("dai-element").value.replace(",","."))
+                        var r = parseFloat(document.getElementById("rong-element").value.replace(",","."))
+                        var t = parseFloat(document.getElementById("tayxach-element").value.replace(",","."))
+                        var gia = parseFloat(document.getElementById("gia-element").value.replace(",","."))
                 }else{
                     alert("Vui lòng nhập đầy đủ thông tin");
                 }
