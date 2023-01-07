@@ -16,7 +16,7 @@
             border: 100;
             border-radius: 1000px;
             height: 34px;
-            font-size: 25px;
+            font-size: 20px;
             font-weight: bold;
         }
         #Nhaplai {
@@ -29,40 +29,49 @@
             border: 100;
             border-radius: 1000px;
             height: 34px;
-            font-size: 25px;
+            font-size: 20px;
             font-weight: bold;
+            margin: 20px 50px 50px;
         }
 
         h1{
-
             font-size: 20px;
-
-            text-align: center;
+            margin: auto;
             color: red;
         }
         
         h2{
-            
             text-align: center;
             color: red;
+        }
+        label.belo-lbl{
+            max-width: 5000px;
+            position: relative;
+        }
+
+        label.loaithung{
+            max-width: 5000px;
+            position: relative;
+            margin-right: 70px;
+            
+            top: 0px;
+            right: 10px;
+            width: 200px;
+            height: 100px;
         }
 
         label{
             font-size: 15px;
+            
+            position: absolute;
+            margin-top: 20px;
         }
+
 
         body{
             font-family: sans-serif;
             line-height: 24px;
-            margin: 10;
-            padding: 10;
             text-align: center;
-
-
-            margin-top: 10px;
-            margin-bottom: 10px;
-            margin-right: 15px;
-            margin-left: 8px;
         }
 
         input{
@@ -73,7 +82,8 @@
             margin-top: 10px;
             margin-bottom: 10px;
             margin-right: 15px;
-            margin-left: 8px;
+            margin-left: 208px;
+            
         }
         option{
             font-family: sans-serif;
@@ -86,18 +96,19 @@
         }
         
         .styled-select{
-            width: 360px;
+            
+            width: 380px;
             padding: 5px;
             font-size: 16px;
-            line-height: 1;
+            line-height: 10;
             border: 100;
             border-radius: 1000px;
-            height: 34px;
+            height: 40px;
 
-            margin-top: 10px;
+            margin-top: 50px;
             margin-bottom: 10px;
-            margin-right: 15px;
-            margin-left: 8px;
+            
+            margin-left: 20px;
         }
 
         #belo-div{
@@ -118,48 +129,51 @@
 
 </head>
 <br>
-        <h1> Tính thành tiền thùng carton</h1>
-        <label for="lname">Chọn loại thùng</label><br>
-            <select id="loaithung" class="styled-select" onchange="change()">
-                <option selected="selected" value="khong">Không</option>
-                <option value="ThungA1">Thùng A1</option>
-                <option value="HopNapGai">Hộp nắp gài (dạng bem)</option>
-                <option value="HopAmDuong">Hộp âm dương</option>
-                <option value="ThungNapChong">Thùng nắp chồng</option>
-                <option value="ThungNapDayDitGai">Hộp nắp đậy đít gài</option>
-                <option value="ThungNap2Dau">Hộp nắp đậy 2 đầu</option>
-                <option value="HopTayXach">Hộp tay xách (hay thùng gà)</option>
-                <option value="HopGiay">Hộp giày</option>
-            </select><br>
+<div>
+    <h1> Tính thành tiền thùng carton</h1>
+    <label for="lname" class="loaithung">Chọn loại thùng</label>
+        <select id="loaithung" class="styled-select" onchange="change()">
+            <option selected="selected" value="khong">Không</option>
+            <option value="ThungA1">Thùng A1</option>
+            <option value="HopNapGai">Hộp nắp gài (dạng bem)</option>
+            <option value="HopAmDuong">Hộp âm dương</option>
+            <option value="ThungNapChong">Thùng nắp chồng</option>
+            <option value="ThungNapDayDitGai">Hộp nắp đậy đít gài</option>
+            <option value="ThungNap2Dau">Hộp nắp đậy 2 đầu</option>
+            <option value="HopTayXach">Hộp tay xách (hay thùng gà)</option>
+            <option value="HopGiay">Hộp giày</option>
+        </select><br>
+    
+    <label for="lname">Chiều dài (cm)</label>
+    <input type="text" id="dai-element" name="lname" value=""><br>
+
+    <label for="lname">Chiều rộng (cm)</label>
+    <input type="text" id="rong-element" name="lname" value=""><br>
+
+    <label for="fname">Chiều cao (cm)</label>
+    <input type="text" id="cao-element" value=""><br>
+    
+    <div id="tayxach-div" style="display: none;">
+        <label for="fname">Chiều cao quai xách (cm)</label>
+        <input type="text" id="tayxach-element" value=""><br>
+    </div>
+    
+
+    <label >Giá (m2)</label>
+    <input type="text" id="gia-element" name="lname" value=""><br><br>
+
+    <div id="belo-div" style="display: none;">
+        <label class="belo-lbl">Chọn bế lỗ:</label>
+        <select id="belo">
+            <option value="co">Có</option>
+            <option selected="selected" value="khong">Không</option>
+        </select><br>
+     </div>
+    <button onclick="reset()" id="Nhaplai">Nhập lại</button><button  onclick="myFunction()">Tính</button><br><br>
+    <h2 id = "thanhtien"></h2>
+    <h2 id = "giakhuonbe"></h2>
+</div>
         
-        <label for="lname">Chiều dài (cm)</label><br>
-        <input type="text" id="dai-element" name="lname" value=""><br>
-
-        <label for="lname">Chiều rộng (cm)</label><br>
-        <input type="text" id="rong-element" name="lname" value=""><br>
-
-        <label for="fname">Chiều cao (cm)</label><br>
-        <input type="text" id="cao-element" value=""><br>
-        
-        <div id="tayxach-div" style="display: none;">
-            <label for="fname">Chiều cao quai xách (cm)</label><br>
-            <input type="text" id="tayxach-element" value=""><br>
-        </div>
-        
-
-        <label for="lname">Giá (m2)</label><br>
-        <input type="text" id="gia-element" name="lname" value=""><br><br>
-
-        <div id="belo-div" style="display: none;">
-            <label for="cars">Chọn bế lỗ:</label>
-            <select id="belo">
-                <option value="co">Có</option>
-                <option selected="selected" value="khong">Không</option>
-            </select><br>
-         </div>
-        <button onclick="reset()" id="Nhaplai">Nhập lại</button><button  onclick="myFunction()">Tính</button><br><br>
-        <h2 id = "thanhtien"></h2> <br>
-        <h2 id = "giakhuonbe"></h2>
 
     <script>
         var loaithung_value;
@@ -169,14 +183,17 @@
 
             if(loaithung_value === "Thùng A1"){
                 document.getElementById("belo-div").style.display = "block";
+                document.getElementById("tayxach-div").style.display = "none";
             }
             else if(loaithung_value === "Hộp tay xách (hay thùng gà)"){
                 document.getElementById("tayxach-div").style.display = "block";
-            }
-            else{
+                document.getElementById("belo-div").style.display = "none";
+            }else
+            {
                 document.getElementById("belo-div").style.display = "none";
                 document.getElementById("tayxach-div").style.display = "none";
             }
+
         }
     
         function tinhD(d, r, belo)
