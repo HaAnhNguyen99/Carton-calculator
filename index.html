@@ -9,7 +9,20 @@
         button {
             text-align: center;
             color: red;
-            width: 370px;   
+            width: 200px;   
+            height: 370px;
+            padding: 5px;
+            line-height: 1;
+            border: 100;
+            border-radius: 1000px;
+            height: 34px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        #Nhaplai {
+            text-align: center;
+            color: rgb(53, 56, 216);
+            width: 150px;   
             height: 370px;
             padding: 5px;
             line-height: 1;
@@ -144,8 +157,8 @@
                 <option selected="selected" value="khong">Không</option>
             </select><br>
          </div>
-        <button  onclick="myFunction()">Tính</button><br><br>
-        <h2 id = "thanhtien"></h2>
+        <button onclick="reset()" id="Nhaplai">Nhập lại</button><button  onclick="myFunction()">Tính</button><br><br>
+        <h2 id = "thanhtien"></h2> <br>
         <h2 id = "giakhuonbe"></h2>
 
     <script>
@@ -289,7 +302,6 @@
             
                             const Thanhtien = Math.trunc(D * K * gia);
                             document.getElementById("thanhtien").innerHTML = "Giá thành: " + Thanhtien.toLocaleString() + " VNĐ";
-                            reset();
                             break;
             
                         case 'Hộp nắp gài (dạng bem)':
@@ -304,7 +316,6 @@
                             var showGiakhuonBe = GiakhuonBe.toLocaleString()
                             document.getElementById("thanhtien").innerHTML = "Giá thành: " + showThanhtien + " VNĐ" ;
                             document.getElementById("giakhuonbe").innerHTML = "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
-                            reset();
                             break;
                         case 'Hộp âm dương':
                             var showThanhtien = TinhGiaThanh_HopAmDuong(c, r, d, gia);
@@ -312,7 +323,6 @@
             
                             document.getElementById("thanhtien").innerHTML = "Giá thành: " + showThanhtien + " VNĐ" ;
                             document.getElementById("giakhuonbe").innerHTML = "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
-                            reset();
                             break;
                         case 'Thùng nắp chồng':
                             var D = ((d + r) * 2) + 5;
@@ -320,7 +330,6 @@
                             var ThanhTien = Math.trunc(D * K * gia);
                             var showThanhtien = ThanhTien.toLocaleString()
                             document.getElementById("thanhtien").innerHTML = "Giá thành: " + showThanhtien + " VNĐ" ;
-                            reset();
                             break;
                         case 'Hộp nắp đậy đít gài':
                             var D = ((d + r) * 2) + 5;
@@ -332,7 +341,6 @@
                             
                             document.getElementById("thanhtien").innerHTML = "Giá thành: " + showThanhtien + " VNĐ" ;
                             document.getElementById("giakhuonbe").innerHTML = "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
-                            reset();
                             break;
                         case 'Hộp nắp đậy 2 đầu':
                             var D;
@@ -350,7 +358,6 @@
                             
                             document.getElementById("thanhtien").innerHTML = "Giá thành: " + showThanhtien + " VNĐ" ;
                             document.getElementById("giakhuonbe").innerHTML = "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
-                            reset();
                             break;
                         case 'Hộp tay xách (hay thùng gà)':
                             var D;
@@ -369,7 +376,6 @@
             
                             document.getElementById("thanhtien").innerHTML = "Giá thành: " + showThanhtien + " VNĐ" ;
                             document.getElementById("giakhuonbe").innerHTML = "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
-                            reset();
                             break;
                         case 'Hộp giày':
                             var D = (2 * c) + d + 13;
@@ -383,7 +389,6 @@
                             
                             document.getElementById("thanhtien").innerHTML = "Giá thành: " + showThanhtien + " VNĐ" ;
                             document.getElementById("giakhuonbe").innerHTML = "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
-                            reset();
                             break;
                         default:
                             // code block
