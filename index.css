@@ -1,0 +1,125 @@
+button {
+  text-align: center;
+  color: red;
+  width: 40%;
+  padding: 5px;
+  line-height: 1;
+  border: 100;
+  border-radius: 1000px;
+  height: 34px;
+  font-size: 20px;
+  font-weight: bold;
+}
+#Nhaplai {
+  text-align: center;
+  color: rgb(53, 56, 216);
+  width: 150;
+  padding: 5px;
+  line-height: 1;
+  border: 100;
+  border-radius: 1000px;
+  height: 34px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 20px 50px;
+}
+
+h1 {
+  font-size: 20px;
+  margin: auto;
+  color: red;
+}
+
+h2 {
+  text-align: center;
+  color: red;
+}
+label.belo-lbl {
+  max-width: 5000px;
+  position: relative;
+}
+
+label.loaithung {
+  position: relative;
+  margin-right: 35px;
+
+  top: 0px;
+  right: 10px;
+  width: 200px;
+  height: 100px;
+}
+
+label {
+  font-size: 15px;
+  position: absolute;
+  margin-top: 20px;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 24px;
+  text-align: center;
+}
+
+input {
+  font-family: sans-serif;
+  text-align: center;
+  width: 350px;
+  height: 34px;
+  border-radius: 1000px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 15px;
+  margin-left: 150px;
+}
+option {
+  font-family: sans-serif;
+  font-size: 15px;
+}
+
+select::-ms-expand {
+  display: none;
+  border-radius: 1000px;
+}
+
+.styled-select {
+  text-align: center;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 10;
+  border: 100;
+  border-radius: 1000px;
+
+  margin-top: 30px;
+  margin-bottom: 10px;
+  width: 350px;
+  height: 34px;
+}
+
+#belo-div {
+  place-items: center;
+  margin-bottom: 10px;
+  margin-right: 15px;
+  margin-left: 8px;
+}
+
+#belo {
+  place-items: center;
+  width: 200px;
+  height: 30px;
+  border-radius: 1000px;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+  /* For mobile phones: */
+  [class*="text"] {
+    width: 50%;
+  }
+  [class*="styled-select"] {
+    width: 50%;
+  }
+}
