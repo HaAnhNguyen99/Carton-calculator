@@ -31,8 +31,8 @@ body {
   font-size: 1.6rem;
   max-width: 34rem;
   background: rgba(56, 130, 179, 0.26);
-  padding: 4.5rem;
   border-radius: 10%;
+  padding: 2rem 1rem 5rem;
 }
 
 .col::after {
@@ -63,6 +63,7 @@ select {
 h2 {
   color: orangered;
   margin-top: 0;
+  font-size: 2rem;
 }
 .btn:link,
 .btn:visited {
