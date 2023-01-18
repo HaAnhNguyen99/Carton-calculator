@@ -1,147 +1,100 @@
-#contain {
-  border-radius: 25px;
-  border: 2px solid #73ad21;
-  padding: 20px;
-  width: 500px;
-  height: 500px;
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-button {
-  text-align: center;
-  color: white;
-  background-color: #04aa6d;
-  width: 200px;
-  padding: 5px;
-  line-height: 1;
-  border: 100;
-  border-radius: 1000px;
-  height: 34px;
-  font-size: 20px;
-  font-weight: bold;
-}
-#Nhaplai {
-  text-align: center;
-  color: rgb(53, 56, 216);
-  background-color: white;
-  width: 150;
-  padding: 5px;
-  line-height: 1;
-  border: 100;
-  border-radius: 1000px;
-  height: 34px;
-  font-size: 20px;
-  font-weight: bold;
-  margin: 20px 20px 50px 5%;
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-h1 {
-  font-size: 20px;
-  margin: auto;
-  color: red;
-}
-
-h2 {
-  text-align: center;
-  color: red;
-}
-label.belo-lbl {
-  max-width: 5000px;
-  position: relative;
-}
-
-label.loaithung {
-  position: relative;
-  margin-right: 35px;
-
-  top: 0px;
-  right: 10px;
-  width: 200px;
-  height: 100px;
-}
-
-label {
-  font-size: 15px;
-  position: absolute;
-  margin-top: 20px;
+html {
+  font-size: 62.5%;
 }
 
 body {
-  font-family: sans-serif;
-  line-height: 24px;
+  box-sizing: border-box;
+  font-family: Tahoma;
+}
+
+.header {
   text-align: center;
+  font-size: 2rem;
+  color: rgb(142, 79, 219);
+  font-weight: 700;
 }
 
-input {
-  font-family: sans-serif;
+.row {
+  margin: 0 auto;
+  font-size: 1.6rem;
+  max-width: 34rem;
+  background: rgba(56, 130, 179, 0.26);
+  padding: 4.5rem;
+  border-radius: 10%;
+}
+
+.col::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.col:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+label {
+  max-width: calc((100% - 2rem) / 2);
+  float: left;
+}
+input,
+select {
+  width: 17rem;
+  height: 2.5rem;
+  box-sizing: border-box;
+  float: right;
+  border-radius: 1rem;
   text-align: center;
-  width: 350px;
-  height: 34px;
-  border-radius: 1000px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 15px;
-  margin-left: 150px;
+  font-size: 1.8rem;
 }
 
-input:focus {
-  background-color: lightblue;
+h2 {
+  color: orangered;
+  margin-top: 0;
+}
+.btn:link,
+.btn:visited {
+  font-size: 2rem;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solod #55c57a;
+  padding: 0.3rem;
+  transition: all 0.2s;
+  border-radius: 1.2rem;
+  color: white;
+  padding: 0.5rem 0.6rem;
 }
 
-option {
-  font-family: sans-serif;
-  font-size: 15px;
+.btn:hover {
+  background-color: #55c57a28;
+  color: #fff;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
-select::-ms-expand {
-  display: none;
-  border-radius: 1000px;
+.btn:active {
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+  transform: translateY(0);
 }
 
-.styled-select {
-  text-align: center;
-  padding: 5px;
-  font-size: 16px;
-  line-height: 10;
-  border: 100;
-  border-radius: 1000px;
-
-  margin-top: 30px;
-  margin-bottom: 10px;
-  width: 350px;
-  height: 34px;
+#btn-nhaplai {
+  background-color: #3936e9;
+  float: left;
 }
 
-#belo-div {
-  place-items: center;
-  margin-bottom: 10px;
-  margin-right: 15px;
-  margin-left: 8px;
-}
-
-#belo {
-  width: 150px;
-  height: 30px;
-  border-radius: 1000px;
-
-  text-align: center;
-}
-
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  [class*="col-"] {
-    width: 100%;
-  }
-  /* For mobile phones: */
-  [class*="text"] {
-    width: 50%;
-  }
-  [class*="styled-select"] {
-    width: 50%;
-  }
-  button {
-    width: 40%;
-  }
-  #chieucaoqx {
-    font-size: 15px;
-  }
+#btn-tinh {
+  float: right;
+  background-color: #55c57a;
 }

@@ -1,60 +1,87 @@
 <!DOCTYPE html>
-<br lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="index.css" rel="stylesheet" />
-    <script src="index.js"></script>
-
-</head>
-<br>
-<div>
-    <h1> Tính thành tiền thùng carton</h1>
-    <label for="lname" class="loaithung">Chọn loại thùng</label>
-        <select id="loaithung" class="styled-select"  onchange="change()">
-        <option selected="selected" value="khong">Không</option>
-        <option value="ThungA1">Thùng A1</option>
-        <option value="HopNapGai">Hộp nắp gài (dạng bem)</option>
-        <option value="HopAmDuong">Hộp âm dương</option>
-        <option value="ThungNapChong">Thùng nắp chồng</option>
-<option value="ThungNapDayDitGai">Hộp nắp đậy đít gài</option>
-        <option value="ThungNap2Dau">Hộp nắp đậy 2 đầu</option>
-            <option value="HopTayXach">Hộp tay xách (hay thùng gà)</option>
-            <option value="HopGiay">Hộp giày</option>
-        </select><br>
-    
-    <label for="lname">Chiều dài (cm)</label>
-    <input class="text" id="dai-element" name="lname" value=""><br>
-
-    <label for="lname">Chiều rộng (cm)</label>
-    <input class="text" id="rong-element" name="lname" value=""><br>
-
-    <label for="fname">Chiều cao (cm)</label>
-    <input class="text" id="cao-element" value=""><br>
-    
-    <div id="tayxach-div" style="display: none;">
-        <label id="chieucaoqx">Chiều cao quai xách</label>
-        <input class="text" id="tayxach-element" value=""><br>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <script
+      src="https://kit.fontawesome.com/dc8ff0768a.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Nam tồ</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Tính thành tiền thùng carton</h1>
     </div>
-    
+    <div class="row">
+      <div class="col">
+        <label for="select-loaithung">Chọn loại thùng</label>
+        <select id="select-loaithung" onchange="change()">
+          <option selected="selected" value="khong">Không</option>
+          <option value="ThungA1">Thùng A1</option>
+          <option value="HopNapGai">Hộp nắp gài (dạng bem)</option>
+          <option value="HopAmDuong">Hộp âm dương</option>
+          <option value="ThungNapChong">Thùng nắp chồng</option>
+          <option value="ThungNapDayDitGai">Hộp nắp đậy đít gài</option>
+          <option value="ThungNap2Dau">Hộp nắp đậy 2 đầu</option>
+          <option value="HopTayXach">Hộp tay xách (hay thùng gà)</option>
+          <option value="HopGiay">Hộp giày</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="dai-element">Chiều dài (cm)</label>
+        <input type="text" id="dai-element" />
+      </div>
+      <div class="col">
+        <label for="rong-element">Chiều rộng (cm)</label>
+        <input type="text" id="rong-element" value="" />
+      </div>
+      <div class="col">
+        <label for="cao-element">Chiều cao (cm)</label>
+        <input type="text" id="cao-element" value="" />
+      </div>
 
-    <label >Giá (m2)</label>
-    <input class="text" id="gia-element" name="lname" value=""><br><br>
+      <div class="col" style="display: none" id="tayxach-div">
+        <label for="tayxach-element" id="lbl-tayxach"
+          >Chiều cao quai xách</label
+        >
+        <input type="text" id="tayxach-element" value="" />
+      </div>
 
-    <div id="belo-div" style="display: none;">
-        <label class="belo-lbl">Chọn bế lỗ:</label>
+      <div class="col">
+        <label for="gia-element">Giá (m2)</label>
+        <input type="text" id="gia-element" />
+      </div>
+
+      <div class="col" id="belo-div" style="display: none">
+        <label for="belo" class="belo-lbl">Chọn bế lỗ:</label>
         <select id="belo">
-            <option value="co">Có</option>
-            <option selected="selected" value="khong">Không</option>
-        </select><br>
-     </div>
-     <h2 id = "thanhtien"></h2>
-    <h2 id = "giakhuonbe"></h2>
-    <div class="btn">
-        <button onclick="reset()" id="Nhaplai">Nhập lại</button><button  onclick="myFunction()">Tính</button><br><br>
+          <option value="co">Có</option>
+          <option selected="selected" value="khong">Không</option></select
+        ><br />
+      </div>
+
+      <div id="answer">
+        <h2 id="thanhtien"></h2>
+        <h2 id="giakhuonbe"></h2>
+      </div>
+
+      <div>
+        <h2 id="noti" style="color: red"></h2>
+      </div>
+
+      <div>
+        <a href="#" onclick="reset()" class="btn" id="btn-nhaplai"
+          >Nhập lại <i class="fa-solid fa-recycle"></i
+        ></a>
+        <a href="#" onclick="myFunction()" class="btn" id="btn-tinh"
+          >Tính <i class="fa-solid fa-calculator"></i
+        ></a>
+      </div>
     </div>
-</div>
-</body>
+
+    <script src="index.js"></script>
+  </body>
 </html>

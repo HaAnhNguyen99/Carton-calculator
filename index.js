@@ -1,6 +1,6 @@
 var loaithung_value;
 function change() {
-  var loaithung_element = document.getElementById("loaithung");
+  var loaithung_element = document.getElementById("select-loaithung");
   var loaithung_value =
     loaithung_element.options[loaithung_element.selectedIndex].text;
 
@@ -110,6 +110,13 @@ function reset() {
   var t = (document.getElementById("tayxach-element").value = "");
   var gia = (document.getElementById("gia-element").value = "");
 }
+function changeState(state) {
+  if (state === 1) document.getElementById("noti").style.display = "block";
+  else {
+    document.getElementById("noti").style.display = "none";
+  }
+}
+
 function myFunction() {
   var c = parseFloat(
     document.getElementById("cao-element").value.replace(",", ".")
@@ -128,9 +135,11 @@ function myFunction() {
   );
 
   if (!isNaN(c) && !isNaN(d) && !isNaN(r) && !isNaN(gia)) {
-    var loaithung_element = document.getElementById("loaithung");
+    var loaithung_element = document.getElementById("select-loaithung");
     var loaithung =
       loaithung_element.options[loaithung_element.selectedIndex].text;
+
+    let state = 0;
     switch (loaithung) {
       case "Thùng A1":
         var belo_element = document.getElementById("belo");
@@ -208,24 +217,32 @@ function myFunction() {
           "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
         break;
       case "Hộp tay xách (hay thùng gà)":
-        var D;
-        var dieukien = (d + r) * 2;
-        if (dieukien >= 135) {
-          D = (d + r) * 2 + 10;
+        if (!isNaN(t)) {
+          var D;
+          var dieukien = (d + r) * 2;
+          if (dieukien >= 135) {
+            D = (d + r) * 2 + 10;
+          } else {
+            D = (d + r) * 2 + 5;
+          }
+          var K = t + r / 2 + c + r / 2 + 6;
+
+          var ThanhTien = Math.trunc(D * K * gia);
+          var GiakhuonBe = Math.trunc(D * K * 140 + 150000);
+          var showThanhtien = ThanhTien.toLocaleString();
+          var showGiakhuonBe = GiakhuonBe.toLocaleString();
+
+          document.getElementById("thanhtien").innerHTML =
+            "Giá thành: " + showThanhtien + " VNĐ";
+          document.getElementById("giakhuonbe").innerHTML =
+            "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
         } else {
-          D = (d + r) * 2 + 5;
+          document.getElementById("thanhtien").innerHTML = "";
+          document.getElementById("giakhuonbe").innerHTML = "";
+          document.getElementById("noti").innerHTML =
+            "Vui lòng nhập đầy đủ thông tin!";
+          state = 1;
         }
-        var K = t + r / 2 + c + r / 2 + 6;
-
-        var ThanhTien = Math.trunc(D * K * gia);
-        var GiakhuonBe = Math.trunc(D * K * 140 + 150000);
-        var showThanhtien = ThanhTien.toLocaleString();
-        var showGiakhuonBe = GiakhuonBe.toLocaleString();
-
-        document.getElementById("thanhtien").innerHTML =
-          "Giá thành: " + showThanhtien + " VNĐ";
-        document.getElementById("giakhuonbe").innerHTML =
-          "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
         break;
       case "Hộp giày":
         var D = 2 * c + d + 13;
@@ -242,26 +259,18 @@ function myFunction() {
         document.getElementById("giakhuonbe").innerHTML =
           "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
         break;
-      default:
-        // code block
-        alert("Vui lòng chọn loại thùng!");
+      case "Không":
+        document.getElementById("noti").innerHTML = "Vui lòng chọn loại thùng!";
+        state = 1;
+        break;
     }
-    var c = parseFloat(
-      document.getElementById("cao-element").value.replace(",", ".")
-    );
-    var d = parseFloat(
-      document.getElementById("dai-element").value.replace(",", ".")
-    );
-    var r = parseFloat(
-      document.getElementById("rong-element").value.replace(",", ".")
-    );
-    var t = parseFloat(
-      document.getElementById("tayxach-element").value.replace(",", ".")
-    );
-    var gia = parseFloat(
-      document.getElementById("gia-element").value.replace(",", ".")
-    );
+    changeState(state);
   } else {
-    alert("Vui lòng nhập đầy đủ thông tin");
+    console.log("hi");
+    document.getElementById("thanhtien").innerHTML = "";
+    document.getElementById("giakhuonbe").innerHTML = "";
+    document.getElementById("noti").innerHTML =
+      "Vui lòng nhập đầy đủ thông tin!";
+    changeState(1);
   }
 }
