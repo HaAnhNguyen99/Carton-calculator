@@ -60,6 +60,7 @@ body {
 label {
   max-width: calc((100% - 2rem) / 2);
   float: left;
+  font-size: 1.8rem;
 }
 
 input,
@@ -127,9 +128,9 @@ h2 {
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 1.4rem 1.6rem;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 1.7rem;
 }
 
 .topnav a:hover {
@@ -140,6 +141,7 @@ h2 {
 .topnav a.active {
   background-color: #04aa6d;
   color: white;
+  /* width: 10rem; */
 }
 
 @media only screen and (max-width: 440px) {
@@ -148,5 +150,18 @@ h2 {
     flex-direction: column;
     border-radius: 2rem;
     /* max-width: 200rem; */
+  }
+  .section-content {
+    background: rgba(56, 130, 179, 0.26);
+    padding: 3rem 1rem;
+    max-width: fit-content;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    border-radius: 3rem;
+  }
+
+  label {
+    font-size: 1.5rem;
   }
 }
