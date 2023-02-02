@@ -17,12 +17,14 @@ html {
 body {
   box-sizing: border-box;
   font-family: Tahoma;
+
+  background-image: linear-gradient(90deg, #aae3e2, #d9acf5, #fdebed);
 }
 
 .section-content {
   background: rgba(56, 130, 179, 0.26);
   padding: 3rem 1rem;
-  max-width: max-content;
+  max-width: fit-content;
   /* width: 150%; */
   padding: 3rem;
   margin: 0 auto;
@@ -33,7 +35,7 @@ body {
 .header {
   text-align: center;
   font-size: 2rem;
-  color: #000000e3;
+  color: #ffffff;
   font-weight: 700;
 }
 
@@ -43,7 +45,6 @@ body {
   /* background: #84d2c5a4; */
   border-radius: 10%;
   padding: 2rem 1rem 5rem;
-  position: relative;
 }
 
 .col::after {
@@ -70,6 +71,8 @@ select {
   border-radius: 1rem;
   text-align: center;
   font-size: 1.8rem;
+
+  margin-left: 2rem;
 }
 
 h2 {
@@ -103,13 +106,13 @@ h2 {
 }
 
 #btn-nhaplai {
-  background-color: #3936e9;
+  background-color: #ffcefea2;
   float: left;
 }
 
 #btn-tinh {
   float: right;
-  background-color: #b05a7a;
+  background-color: #aae3e2a9;
 }
 
 .topnav {
