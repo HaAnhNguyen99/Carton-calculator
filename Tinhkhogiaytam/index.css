@@ -17,34 +17,33 @@ html {
 body {
   box-sizing: border-box;
   font-family: Tahoma;
-  background-image: linear-gradient(-90deg, #c4660099, pink);
-}
-
-.header {
-  text-align: center;
-  font-size: 2rem;
-  color: rgba(89, 49, 138, 0.616);
-  font-weight: 700;
 }
 
 .section-content {
   background: rgba(56, 130, 179, 0.26);
   padding: 3rem 1rem;
-  max-width: fit-content;
-  width: 100%;
+  max-width: max-content;
+  /* width: 150%; */
   padding: 3rem;
   margin: 0 auto;
   margin-top: 2rem;
   border-radius: 3rem;
 }
 
-.row {
-  margin: 0 auto;
+.header {
+  text-align: center;
   font-size: 2rem;
+  color: #000000e3;
+  font-weight: 700;
+}
+
+.row {
+  font-size: 1.6rem;
   max-width: 34rem;
-  /* background: rgba(56, 130, 179, 0.26); */
+  /* background: #84d2c5a4; */
   border-radius: 10%;
   padding: 2rem 1rem 5rem;
+  position: relative;
 }
 
 .col::after {
@@ -54,13 +53,14 @@ body {
 }
 
 .col:not(:last-child) {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 label {
   max-width: calc((100% - 2rem) / 2);
   float: left;
 }
+
 input,
 select {
   width: 17rem;
@@ -73,7 +73,7 @@ select {
 }
 
 h2 {
-  color: rgba(255, 68, 0, 0.616);
+  color: #c27664;
   margin-top: 0;
   font-size: 2rem;
 }
@@ -91,7 +91,7 @@ h2 {
 }
 
 .btn:hover {
-  background-color: #55c57a28;
+  background-color: #b05a7a;
   color: #fff;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
@@ -103,14 +103,15 @@ h2 {
 }
 
 #btn-nhaplai {
-  background-color: #3936e988;
+  background-color: #3936e9;
   float: left;
 }
 
 #btn-tinh {
   float: right;
-  background-color: #55c57a;
+  background-color: #b05a7a;
 }
+
 .topnav {
   max-width: 60rem;
   border-radius: 30rem;
@@ -144,19 +145,5 @@ h2 {
     flex-direction: column;
     border-radius: 2rem;
     /* max-width: 200rem; */
-  }
-}
-
-@media only screen and (max-width: 550px) {
-  .section-content {
-    background: rgba(56, 130, 179, 0.26);
-    padding: 3rem 1rem;
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 2rem;
-    border-radius: 3rem;
-  }
-  .row {
-    font-size: 1.6rem;
   }
 }

@@ -1,4 +1,5 @@
 var loaithung_value;
+
 function change() {
   var loaithung_element = document.getElementById("select-loaithung");
   var loaithung_value =
@@ -14,6 +15,7 @@ function change() {
     document.getElementById("belo-div").style.display = "none";
     document.getElementById("tayxach-div").style.display = "none";
   }
+  reset();
 }
 
 function tinhD(d, r, belo) {
@@ -63,18 +65,14 @@ function TinhK2_HopAmDuong(c, d) {
 // Tính Đáy hộp âm dương
 function TinhDay_HopAmDuong(c, r, d, gia) {
   var D1 = TinhD1_HopAmDuong(c, d);
-  console.log("D1 = " + D1);
   var K1 = TinhK1_HopAmDuong(c, r);
-  console.log("K1 = " + K1);
   var Day = D1 * K1 * gia;
   return Day;
 }
 // Tính Nắp hộp âm dương
 function TinhNap_HopAmDuong(c, r, d, gia) {
   var D2 = TinhD2_HopAmDuong(c, r);
-  console.log("D2 = " + D2);
   var K2 = TinhK2_HopAmDuong(c, d);
-  console.log("K2 = " + K2);
 
   var Nap = D2 * K2 * gia;
   return Nap;
@@ -98,7 +96,9 @@ function TinhGiaKhuonBe_HopAmDuong(c, r, d) {
   var D2 = TinhD2_HopAmDuong(c, r);
   var K2 = TinhK2_HopAmDuong(c, d);
 
-  var GiaKhuongBe = Math.trunc(D1 * K1 * 140 + D2 * K2 * 140 + 150000);
+  var GiaKhuongBe_ = D1 * K1 * 140 + 150000 + D2 * K2 * 140 + 150000;
+  var GiaKhuongBe = Math.trunc(GiaKhuongBe_ + GiaKhuongBe_ * 0.2);
+
   var GiaKhuongBe_return = GiaKhuongBe.toLocaleString();
   return GiaKhuongBe_return;
 }
@@ -109,7 +109,10 @@ function reset() {
   var r = (document.getElementById("rong-element").value = "");
   var t = (document.getElementById("tayxach-element").value = "");
   var gia = (document.getElementById("gia-element").value = "");
+  document.getElementById("thanhtien").innerHTML = "";
+  document.getElementById("giakhuonbe").innerHTML = "";
 }
+
 function changeState(state) {
   if (state === 1) document.getElementById("noti").style.display = "block";
   else {
@@ -152,14 +155,15 @@ function myFunction() {
         document.getElementById("thanhtien").innerHTML =
           "Giá thành: " + Thanhtien.toLocaleString() + " VNĐ";
         break;
-
       case "Hộp nắp gài (dạng bem)":
         var D = TinhD_ThungNapGai(d, c);
 
         var K = TinhK_ThungNapGai(r, c);
 
         var ThanhTien = Math.trunc(D * K * gia);
-        var GiakhuonBe = Math.trunc(D * K * 140 + 150000);
+        var GiakhuonBe_ = D * K * 140 + 150000;
+        var GiakhuonBe = Math.trunc(GiakhuonBe_ + GiakhuonBe_ * 0.2);
+
         var showThanhtien = ThanhTien.toLocaleString();
         var showGiakhuonBe = GiakhuonBe.toLocaleString();
         document.getElementById("thanhtien").innerHTML =
@@ -188,7 +192,10 @@ function myFunction() {
         var D = (d + r) * 2 + 5;
         var K = 3 + r + c + r / 2 + 6;
         var ThanhTien = Math.trunc(D * K * gia);
-        var GiakhuonBe = Math.trunc(D * K * 140 + 150000);
+        var GiakhuonBe_ = D * K * 140 + 150000;
+        var GiakhuonBe = Math.trunc(GiakhuonBe_ + GiakhuonBe_ * 0.2);
+
+        // show
         var showThanhtien = ThanhTien.toLocaleString();
         var showGiakhuonBe = GiakhuonBe.toLocaleString();
 
@@ -207,7 +214,9 @@ function myFunction() {
         }
         var K = (3 + r) * 2 + 3 + c;
         var ThanhTien = Math.trunc(D * K * gia);
-        var GiakhuonBe = Math.trunc(D * K * 140 + 150000);
+        var GiakhuonBe_ = D * K * 140 + 150000;
+        var GiakhuonBe = Math.trunc(GiakhuonBe_ + GiakhuonBe_ * 0.2);
+
         var showThanhtien = ThanhTien.toLocaleString();
         var showGiakhuonBe = GiakhuonBe.toLocaleString();
 
@@ -228,7 +237,9 @@ function myFunction() {
           var K = t + r / 2 + c + r / 2 + 6;
 
           var ThanhTien = Math.trunc(D * K * gia);
-          var GiakhuonBe = Math.trunc(D * K * 140 + 150000);
+          var GiakhuonBe_ = D * K * 140 + 150000;
+          var GiakhuonBe = Math.trunc(GiakhuonBe_ + GiakhuonBe_ * 0.2);
+
           var showThanhtien = ThanhTien.toLocaleString();
           var showGiakhuonBe = GiakhuonBe.toLocaleString();
 
@@ -249,7 +260,8 @@ function myFunction() {
         var K = 2 * c + 2 * r + 13;
 
         var ThanhTien = Math.trunc(D * K * gia);
-        var GiakhuonBe = Math.trunc(D * K * 140 + 150000);
+        var GiakhuonBe_ = D * K * 140 + 150000;
+        var GiakhuonBe = Math.trunc(GiakhuonBe_ + GiakhuonBe_ * 0.2);
 
         var showThanhtien = ThanhTien.toLocaleString();
         var showGiakhuonBe = GiakhuonBe.toLocaleString();
@@ -259,6 +271,16 @@ function myFunction() {
         document.getElementById("giakhuonbe").innerHTML =
           "Giá khuôn bế: " + showGiakhuonBe + " VNĐ";
         break;
+      case "Thùng âm dương (gỗ)":
+        var D = 2 * c + d + 3;
+        var R = 2 * c + r + 3;
+
+        var ThanhTien = Math.trunc(D * R * gia * 2);
+        var showThanhtien = ThanhTien.toLocaleString();
+
+        document.getElementById("thanhtien").innerHTML =
+          "Giá thành: " + showThanhtien + " VNĐ";
+        break;
       case "Không":
         document.getElementById("noti").innerHTML = "Vui lòng chọn loại thùng!";
         state = 1;
@@ -266,7 +288,6 @@ function myFunction() {
     }
     changeState(state);
   } else {
-    console.log("hi");
     document.getElementById("thanhtien").innerHTML = "";
     document.getElementById("giakhuonbe").innerHTML = "";
     document.getElementById("noti").innerHTML =
