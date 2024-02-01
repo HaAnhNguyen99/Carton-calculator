@@ -42,7 +42,6 @@ body {
 .row {
   font-size: 1.6rem;
   max-width: 40rem;
-  /* background: #84d2c5a4; */
   border-radius: 10%;
   padding: 2rem 9rem 7rem;
 }
@@ -157,14 +156,23 @@ h2 {
   }
   .section-content {
     background: rgba(56, 130, 179, 0.26);
-    padding: 3rem 1rem;
+    padding: 5rem 1rem;
     max-width: fit-content;
-    width: 100%;
+    width: 95%;
     margin: 0 auto;
     margin-top: 2rem;
     border-radius: 3rem;
   }
-
+  .row {
+    font-size: 1.6rem;
+    max-width: 38rem;
+    border-radius: 10%;
+    padding: 2rem 0rem 2rem;
+  }
+  input,
+  label {
+    display: block;
+  }
   label {
     font-size: 1.5rem;
   }

@@ -50,26 +50,32 @@ function D2(D0, R0, DL2) {
   return ((D0 * R0) / 10000) * DL2;
 }
 
-//Tinh D3
-function D3(D0, R0, DL3) {
+//Tinh D3 thung 3 l
+function D3_3L(D0, R0, DL3) {
+  return ((D0 * R0) / 10000) * DL3 * 1.5;
+}
+
+//Tinh D3 thung 5 l
+function D3_5L(D0, R0, DL3) {
   return ((D0 * R0) / 10000) * DL3;
 }
 
 //Tinh D4
 function D4(D0, R0, DL4) {
-  return ((D0 * R0) / 10000) * DL4;
+  return ((D0 * R0) / 10000) * DL4 * 1.5;
 }
 
 //Tinh D5
 function D5(D0, R0, DL5) {
-  return ((D0 * R0) / 10000) * DL5;
+  return ((D0 * R0) / 10000) * DL5 * 1.5;
 }
 
 //In kq ra man hinh
 function print(kq) {
-  console.log("Khối lượng đơn hàng A1: " + kq.toFixed(2) + " (Gram)");
+  kq = kq / 1000;
+  console.log("Khối lượng đơn hàng A1: " + kq.toFixed(2) + " (Kg)");
   document.getElementById("KLuong").innerHTML =
-    "Khối lượng đơn hàng A1: " + kq.toFixed(2) + " (Gram)";
+    "Khối lượng đơn hàng A1: " + kq.toFixed(2) + " (Kg)";
 }
 
 //Tinh KL thung 3 lop
@@ -79,7 +85,7 @@ function KL3L(d, r, c, DL1, DL2, DL3, sl) {
   let R_0 = R0(r, c);
   let D_1 = D1(D_0, R_0, DL1);
   let D_2 = D2(D_0, R_0, DL2);
-  let D_3 = D3(D_0, R_0, DL3);
+  let D_3 = D3_3L(D_0, R_0, DL3);
 
   const kq = (D_1 + D_2 + D_3) * sl;
   console.log(kq);
@@ -93,13 +99,28 @@ function KL5L(d, r, c, DL1, DL2, DL3, DL4, DL5, sl) {
   let R_0 = R0(r, c);
   let D_1 = D1(D_0, R_0, DL1);
   let D_2 = D2(D_0, R_0, DL2);
-  let D_3 = D3(D_0, R_0, DL3);
+  let D_3 = D3_5L(D_0, R_0, DL3);
   let D_4 = D4(D_0, R_0, DL4);
   let D_5 = D5(D_0, R_0, DL5);
+  console.log(
+    "D0: " +
+      D_0 +
+      " R: " +
+      R_0 +
+      " DL1: " +
+      D_1 +
+      " DL2: " +
+      D_2 +
+      " DL3: " +
+      D_3 +
+      " DL4: " +
+      D_4 +
+      " DL5: " +
+      D_5
+  );
 
   const kq = (D_1 + D_2 + D_3 + D_4 + D_5) * sl;
   print(kq);
-  console.log(kq);
 }
 
 function myFunction() {

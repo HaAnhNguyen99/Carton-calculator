@@ -41,7 +41,7 @@ body {
 .row {
   margin: 0 auto;
   font-size: 2rem;
-  max-width: 34rem;
+  max-width: 48rem;
   /* background: rgba(56, 130, 179, 0.26); */
   border-radius: 10%;
   padding: 2rem 1rem 5rem;
@@ -150,7 +150,7 @@ h2 {
 @media only screen and (max-width: 550px) {
   .section-content {
     background: rgba(56, 130, 179, 0.26);
-    padding: 3rem 1rem;
+    padding: 5rem 1rem;
     width: 90%;
     margin: 0 auto;
     margin-top: 2rem;
