@@ -9,34 +9,27 @@
       src="https://kit.fontawesome.com/dc8ff0768a.js"
       crossorigin="anonymous"
     ></script>
-    <title>Tính Tiền Thùng Carton</title>
+    <title>Tính khối lượng đơn hàng</title>
   </head>
   <body>
     <div class="topnav">
       <a class="active" href="#"><i class="fa-solid fa-box"></i></a>
-      <a href="#">Tính tiền thùng carton</a>
-      <a href="./Tinhkhogiaytam/index.html">Tính khổ giấy tấm</a>
-      <a href="./TinhSo_Khoi/index.html">Tính số khối</a>
-      <a href="./TinhKhoi_Luong/index.html">Tính khối lượng</a>
+      <a href="../index.html">Tính tiền thùng carton</a>
+      <a href="../Tinhkhogiaytam/index.html">Tính khổ giấy tấm</a>
+      <a href="../TinhSo_Khoi/index.html">Tính số khối</a>
+      <a href="../TinhKhoi_Luong/index.html">Tính khối lượng</a>
     </div>
+
     <section class="section-content">
       <div class="header">
-        <h1>Tính thành tiền thùng carton</h1>
+        <h1>Tính khối lượng đơn hàng</h1>
       </div>
       <div class="row">
         <div class="col">
           <label for="select-loaithung">Chọn loại thùng</label>
           <select id="select-loaithung" onchange="change()">
-            <option selected="selected" value="khong">Không</option>
-            <option value="ThungA1">Thùng A1</option>
-            <option value="HopNapGai">Hộp nắp gài (dạng bem)</option>
-            <option value="HopAmDuong">Hộp âm dương</option>
-            <option value="ThungAmDuong">Thùng âm dương (gỗ)</option>
-            <option value="ThungNapChong">Thùng nắp chồng</option>
-            <option value="ThungNapDayDitGai">Hộp nắp đậy đít gài</option>
-            <option value="ThungNap2Dau">Hộp nắp đậy 2 đầu</option>
-            <option value="HopTayXach">Hộp tay xách (hay thùng gà)</option>
-            <option value="HopGiay">Hộp giày</option>
+            <option selected="selected" value="3">3 lớp</option>
+            <option value="5">5 lớp</option>
           </select>
         </div>
         <div class="col">
@@ -52,29 +45,19 @@
           <input type="text" id="cao-element" value="" />
         </div>
 
-        <div class="col" style="display: none" id="tayxach-div">
-          <label for="tayxach-element" id="lbl-tayxach"
-            >Chiều cao quai xách</label
-          >
-          <input type="text" id="tayxach-element" value="" />
+        <div class="col" id="Mocgai" style="display: none">
+          <label for="bienso-input" id="label">Chiều cao móc gài</label>
+          <input type="text" id="bienso-input" />
         </div>
 
         <div class="col">
-          <label for="gia-element">Giá (m2)</label>
-          <input type="text" id="gia-element" />
-        </div>
-
-        <div class="col" id="belo-div" style="display: none">
-          <label for="belo" class="belo-lbl">Chọn bế lỗ:</label>
-          <select id="belo">
-            <option value="co">Có</option>
-            <option selected="selected" value="khong">Không</option></select
-          ><br />
+          <label for="socon-element">Số con</label>
+          <input type="text" id="socon-element" />
         </div>
 
         <div id="answer">
-          <h2 id="thanhtien"></h2>
-          <h2 id="giakhuonbe"></h2>
+          <h2 id="Kho"></h2>
+          <h2 id="Dai"></h2>
         </div>
 
         <div>

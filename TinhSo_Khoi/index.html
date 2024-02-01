@@ -9,38 +9,50 @@
       src="https://kit.fontawesome.com/dc8ff0768a.js"
       crossorigin="anonymous"
     ></script>
-    <title>Tính Tiền Thùng Carton</title>
+    <title>Tính số khối đơn hàng</title>
   </head>
   <body>
     <div class="topnav">
       <a class="active" href="#"><i class="fa-solid fa-box"></i></a>
       <a href="../index.html">Tính tiền thùng carton</a>
       <a href="../Tinhkhogiaytam/index.html">Tính khổ giấy tấm</a>
-      <a href="../TinhSoKhoi/index.html">Tính số khối</a>
-      <a href="../TinhKhoiLuong/index.html">Tính khối lượng</a>
+      <a href="../TinhSo_Khoi/index.html">Tính số khối</a>
+      <a href="../TinhKhoi_Luong/index.html">Tính khối lượng</a>
     </div>
 
     <section class="section-content">
       <div class="header">
-        <h1>Tính khổ giấy tấm</h1>
+        <h1>Tính số khối đơn hàng</h1>
       </div>
       <div class="row">
         <div class="col">
           <label for="select-loaithung">Chọn loại thùng</label>
           <select id="select-loaithung" onchange="change()">
-            <option selected="selected" value="khong">Không</option>
-            <option value="ThungA1">Thùng A1</option>
-            <option value="HopNapGai">Hộp nắp gài (dạng bem)</option>
-            <option value="ThungAmDuong">Thùng âm dương (gỗ)</option>
-            <option value="ThungNapChong">Thùng nắp chồng</option>
-            <option value="ThungNapDayDitGai">Hộp nắp đậy đít gài</option>
-            <option value="ThungNap2Dau">Hộp nắp đậy 2 đầu</option>
-            <option value="HopTayXach">Hộp tay xách (hay thùng gà)</option>
+            <option selected="selected" value="3">3 lớp</option>
+            <option value="5">5 lớp</option>
           </select>
         </div>
+
+        <div class="col" id="song_3">
+          <label for="song-select">Chọn sóng</label>
+          <select id="song-select" onchange="change()">
+            <option selected="selected" value="E">E</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+          </select>
+        </div>
+
+        <div class="col" id="song_5" style="display: none">
+          <label for="song-select">Chọn sóng</label>
+          <select id="song5-select" onchange="change()">
+            <option selected="selected" value="1">BC</option>
+            <option value="2">BE</option>
+          </select>
+        </div>
+
         <div class="col">
           <label for="dai-element">Chiều dài (cm)</label>
-          <input type="text" id="dai-element" />
+          <input type="text" id="dai-element" value="" />
         </div>
         <div class="col">
           <label for="rong-element">Chiều rộng (cm)</label>
@@ -50,20 +62,13 @@
           <label for="cao-element">Chiều cao (cm)</label>
           <input type="text" id="cao-element" value="" />
         </div>
-
-        <div class="col" id="Mocgai" style="display: none">
-          <label for="bienso-input" id="label">Chiều cao móc gài</label>
-          <input type="text" id="bienso-input" />
-        </div>
-
         <div class="col">
-          <label for="socon-element">Số con</label>
-          <input type="text" id="socon-element" />
+          <label for="sl-element">Số lượng thùng</label>
+          <input type="text" id="sl-element" value="" />
         </div>
 
         <div id="answer">
-          <h2 id="Kho"></h2>
-          <h2 id="Dai"></h2>
+          <h2 id="So_Khoi"></h2>
         </div>
 
         <div>
