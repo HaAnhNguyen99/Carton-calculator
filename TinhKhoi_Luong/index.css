@@ -41,10 +41,14 @@ body {
 
 .row {
   font-size: 1.6rem;
-  max-width: 34rem;
+  max-width: 40rem;
   /* background: #84d2c5a4; */
   border-radius: 10%;
-  padding: 2rem 1rem 5rem;
+  padding: 2rem 9rem 7rem;
+}
+
+#lop5 {
+  padding: 0rem 0rem;
 }
 
 .col::after {
@@ -53,8 +57,8 @@ body {
   clear: both;
 }
 
-.col:not(:last-child) {
-  margin-bottom: 1.5rem;
+.col {
+  margin-bottom: 2rem;
 }
 
 label {
@@ -65,7 +69,7 @@ label {
 
 input,
 select {
-  width: 17rem;
+  width: 19rem;
   height: 2.5rem;
   box-sizing: border-box;
   float: right;

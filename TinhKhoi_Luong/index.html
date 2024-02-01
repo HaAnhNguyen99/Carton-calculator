@@ -9,7 +9,7 @@
       src="https://kit.fontawesome.com/dc8ff0768a.js"
       crossorigin="anonymous"
     ></script>
-    <title>Tính khối lượng đơn hàng</title>
+    <title>Tính số khối đơn hàng thùng A1</title>
   </head>
   <body>
     <div class="topnav">
@@ -22,7 +22,7 @@
 
     <section class="section-content">
       <div class="header">
-        <h1>Tính khối lượng đơn hàng</h1>
+        <h1>Tính khối lượng đơn hàng thùng A1</h1>
       </div>
       <div class="row">
         <div class="col">
@@ -32,9 +32,38 @@
             <option value="5">5 lớp</option>
           </select>
         </div>
+
+        <!-- Định lượng lớp 3 -->
+        <div class="lop3" class="col">
+          <div class="col">
+            <label for="lop_1">Định lượng lớp 1 (gram)</label>
+            <input type="text" id="lop_1" value="" />
+          </div>
+          <div class="col">
+            <label for="lop_2">Định lượng lớp 2 (gram)</label>
+            <input type="text" id="lop_2" value="" />
+          </div>
+          <div class="col">
+            <label for="lop_3">Định lượng lớp 3 (gram)</label>
+            <input type="text" id="lop_3" value="" />
+          </div>
+        </div>
+
+        <!-- Định lượng lớp 5 -->
+        <div id="lop5" class="col" style="display: none">
+          <div class="col">
+            <label for="lop_4">Định lượng lớp 4 (gram)</label>
+            <input type="text" id="lop_4" value="" />
+          </div>
+          <div class="col">
+            <label for="lop_5">Định lượng lớp 5 (gram)</label>
+            <input type="text" id="lop_5" value="" />
+          </div>
+        </div>
+
         <div class="col">
           <label for="dai-element">Chiều dài (cm)</label>
-          <input type="text" id="dai-element" />
+          <input type="text" id="dai-element" value="" />
         </div>
         <div class="col">
           <label for="rong-element">Chiều rộng (cm)</label>
@@ -44,20 +73,13 @@
           <label for="cao-element">Chiều cao (cm)</label>
           <input type="text" id="cao-element" value="" />
         </div>
-
-        <div class="col" id="Mocgai" style="display: none">
-          <label for="bienso-input" id="label">Chiều cao móc gài</label>
-          <input type="text" id="bienso-input" />
-        </div>
-
         <div class="col">
-          <label for="socon-element">Số con</label>
-          <input type="text" id="socon-element" />
+          <label for="sl-element">Số lượng thùng</label>
+          <input type="text" id="sl-element" value="" />
         </div>
 
         <div id="answer">
-          <h2 id="Kho"></h2>
-          <h2 id="Dai"></h2>
+          <h2 id="KLuong"></h2>
         </div>
 
         <div>
